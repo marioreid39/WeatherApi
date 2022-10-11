@@ -21,11 +21,11 @@ namespace WeatherApi.Controllers
         }
 
         [HttpGet(Name = "GetWeather")]
-        public async Task <WeatherApiResponse> Get()
+        public async Task <WeatherApiResponse> Get(string ctyName)
         {
             _logger.LogInformation($"[{DateTime.UtcNow}] WeatherController: GetWeather called.");
 
-            var result = await _apiClient.GetWeather("London");
+            var result = await _apiClient.GetWeather(ctyName);
 
             return result;
         }
