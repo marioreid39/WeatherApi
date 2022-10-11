@@ -23,6 +23,8 @@ namespace WeatherApi.Controllers
         [HttpGet(Name = "GetWeather")]
         public async Task <WeatherApiResponse> Get()
         {
+            _logger.LogInformation($"[{DateTime.UtcNow}] WeatherController: GetWeather called.");
+
             var result = await _apiClient.GetWeather("London");
 
             return result;
